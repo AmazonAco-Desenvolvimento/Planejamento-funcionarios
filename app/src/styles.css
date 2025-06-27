@@ -4,3 +4,12 @@
   box-sizing: border-box;
   font-family: "Roboto";
 }
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  background-color: #f8f9fa !important;
+}
