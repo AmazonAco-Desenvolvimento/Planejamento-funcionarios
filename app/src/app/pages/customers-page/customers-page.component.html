@@ -57,26 +57,29 @@
                   #allItems
                   (click)="toggleAllItems(allItems)"
                 />
-                <label for="allItems" class="form-check-label border-2">Todos</label>
+                <label for="allItems" class="form-check-label border-2"
+                  >Todos</label
+                >
               </div>
             </td>
           </tr>
-          <tr *ngFor="let i of items">
+          <tr *ngFor="let i of items; let index = index">
             <th scope="row">
               <div class="form-check">
                 <input
                   type="checkbox"
                   class="form-check-input border-2"
-                  id="{{ i }}"
+                  id="{{ i.id }}"
+                  (click)="dataSelectedToggle(i.id, i)"
                 />
               </div>
             </th>
-            <td>Test</td>
-            <td>4329</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.id }}</td>
           </tr>
         </tbody>
       </table>
-      <a href="#" class="btn btn-primary w-25">Confirmar</a>
+      <a routerLink="userinformation" class="btn btn-primary w-25">Confirmar</a>
     </div>
   </div>
 </div>

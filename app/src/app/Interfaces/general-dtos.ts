@@ -1,3 +1,10 @@
+export interface customer {
+  name: string;
+  id: string;
+  sector: string;
+  desc: string;
+}
+
 export interface rota {
   motorista: string;
   motorista_phone: string;

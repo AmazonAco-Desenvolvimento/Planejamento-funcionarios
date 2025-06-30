@@ -1,0 +1,54 @@
+<div class="container p-3">
+  <nav class="navbar navbar-expand-lg">
+    <div
+      class="container-fluid d-flex align-items-center justify-content-start"
+    >
+      <a routerLink="" (click)="backPage()" class="navbar-brand">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="iconSize"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
+          />
+        </svg>
+      </a>
+      <span class="navbar-text text-black">Voltar</span>
+    </div>
+  </nav>
+
+  <div class="container p-3 mt-3 d-flex flex-column border">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between">
+        <div class="form-check">
+          <input type="checkbox" id="allData" class="form-check-input" />
+          <label for="allData" class="form-check-label">Marcar tudo</label>
+        </div>
+
+        <mat-form-field>
+          <mat-label>Escolha a data</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div
+      *ngFor="let item of items"
+      class="col-12 mt-1 d-flex flex-column w-100"
+    >
+      <div class="p-5 border rounded" id="item{{ item.id }}">
+        {{ item.name }}
+      </div>
+    </div>
+  </div>
+</div>
