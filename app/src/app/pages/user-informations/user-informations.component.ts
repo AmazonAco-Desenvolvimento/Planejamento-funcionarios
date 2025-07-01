@@ -23,7 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 })
 export class UserInformationsComponent {
   constructor(public stored: StoredDataService) {}
-  items: customer[] = this.stored.sectorUsersSelected;
+  items: customer[] = this.stored.searchedUsers;
 
   backPage() {
     this.stored.sectorUsersSelected = [];

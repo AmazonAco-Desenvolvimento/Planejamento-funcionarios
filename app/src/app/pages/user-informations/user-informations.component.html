@@ -23,13 +23,21 @@
     </div>
   </nav>
 
-  <div class="container p-3 mt-3 d-flex flex-column border">
+  <div class="container p-3 mt-3 d-flex flex-column border rounded">
     <div class="row">
       <div class="col-12 d-flex justify-content-between">
         <div class="form-check">
           <input type="checkbox" id="allData" class="form-check-input" />
           <label for="allData" class="form-check-label">Marcar tudo</label>
+          <input
+            type="text"
+            class="form-control mt-1"
+            id="generalTurn"
+            placeholder="Turno aqui (Geral)"
+          />
         </div>
+
+        <!-- selectArea -->
 
         <mat-form-field>
           <mat-label>Escolha a data</mat-label>
@@ -41,14 +49,169 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
-    </div>
-    <div
-      *ngFor="let item of items"
-      class="col-12 mt-1 d-flex flex-column w-100"
-    >
-      <div class="p-5 border rounded" id="item{{ item.id }}">
-        {{ item.name }}
+      <div class="col-12">
+        <ul class="list-group">
+          <li
+            *ngFor="let item of items; let index = index"
+            class="list-group-item p-3"
+          >
+            <div class="d-flex w-100 h-100">
+              <div class="d-flex details flex-column w-50">
+                <p class="mb-0">{{ item.name }}</p>
+                <p class="mb-0">Matricula: {{ item.id }}</p>
+                <p class="mb-0">Centro Custo: {{ item.sector }}</p>
+                <p class="mb-0">Atividade: {{ item.desc }}</p>
+                <input
+                  type="text"
+                  class="form-control mt-1 w-50"
+                  id="turn{{ item.id }}"
+                  placeholder="Turno aqui (Individual)"
+                />
+              </div>
+              <div class="row userForm w-75">
+                <div class="col-4"><p>Rota</p></div>
+                <div class="col-4"><p>Refeitório</p></div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      id="toggleAllForm{{ item.id }}"
+                      class="form-check-input"
+                    />
+                    <label
+                      for="toggleAllForm{{ item.id }}"
+                      class="form-check-label"
+                      >Todos</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-check border-0">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'route' + item.id"
+                    />
+                    <label for="route{{ item.id }}" class="form-check-label"
+                      >Rota</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'ceia' + item.id"
+                    />
+                    <label for="ceia{{ item.id }}" class="form-check-label"
+                      >Ceia</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'desj' + item.id"
+                    />
+                    <label for="desj{{ item.id }}" class="form-check-label"
+                      >Desj.</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'alm' + item.id"
+                    />
+                    <label for="alm{{ item.id }}" class="form-check-label"
+                      >Alm.</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'1lanc' + item.id"
+                    />
+                    <label for="1lanc{{ item.id }}" class="form-check-label"
+                      >1ºlanc.</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'lancDob' + item.id"
+                    />
+                    <label for="lancDob{{ item.id }}" class="form-check-label"
+                      >Lanc. Dob</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'lancesp' + item.id"
+                    />
+                    <label for="lancesp{{ item.id }}" class="form-check-label"
+                      >Lanc. Esp</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'2lanc' + item.id"
+                    />
+                    <label for="2lanc{{ item.id }}" class="form-check-label"
+                      >2º Lanc(3ºT)</label
+                    >
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      value="{{ item }}"
+                      [id]="'jan' + item.id"
+                    />
+                    <label for="jan{{ item.id }}" class="form-check-label"
+                      >Jan</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
+
+<!-- LANC. DOB. LANC. ESP. 2º LANC(3º T) JAN -->

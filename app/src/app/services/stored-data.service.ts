@@ -7,7 +7,7 @@ import { customer } from '../Interfaces/general-dtos';
 export class StoredDataService {
   constructor() {}
   searchedUsers: customer[] = [
-    { name: 'Ricardo', id: '12', sector: 'TI', desc: 'teste' },
+    { name: 'Ricardo Victor Marques Sampaio Pinheiro', id: '12', sector: 'TI', desc: 'teste' },
     { name: 'Ricardo', id: '13', sector: 'TI', desc: 'teste' },
     { name: 'Ricardo', id: '14', sector: 'TI', desc: 'teste' },
   ];
