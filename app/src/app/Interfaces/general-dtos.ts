@@ -24,23 +24,23 @@ export interface route_details {
   reference: string;
   turno: string;
   ha: string;
-}
+}    
 
 export interface customer_extra_details {
-  data: string;
   nome_funcionario: string;
   id: string;
   setor: string;
-  empresa: string;
-  funcao: string;
-  turno: string;
-  rota: boolean;
-  ceia: boolean;
-  desj: boolean;
-  almoco: boolean;
-  lanc1: boolean;
-  lancDob: boolean;
-  lancEsp: boolean;
-  lanc2: boolean;
-  jan: boolean;
+  desc?: string;
+  data?: string;
+  funcao?: string;
+  turno?: string;
+  rota?: boolean;
+  ceia?: boolean;
+  desj?: boolean;
+  almoco?: boolean;
+  lanc1?: boolean;
+  lancDob?: boolean;
+  lancEsp?: boolean;
+  lanc2?: boolean;
+  jan?: boolean;
 }

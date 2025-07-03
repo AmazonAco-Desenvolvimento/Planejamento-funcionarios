@@ -3,7 +3,7 @@
     <div
       class="container-fluid d-flex align-items-center justify-content-start"
     >
-      <a routerLink="" (click)="backPage()" class="navbar-brand">
+      <a routerLink="" (click)="backPage()" id="backBtn" class="navbar-brand">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -27,7 +27,12 @@
     <div class="row">
       <div class="col-12 d-flex justify-content-between">
         <div class="form-check">
-          <input type="checkbox" id="allData" class="form-check-input" />
+          <input
+            type="checkbox"
+            id="allData"
+            class="form-check-input"
+            (click)="toggleAllCustomers(customerDetails)"
+          />
           <label for="allData" class="form-check-label">Marcar tudo</label>
           <input
             type="text"
@@ -38,10 +43,9 @@
         </div>
 
         <!-- selectArea -->
-
         <mat-form-field>
           <mat-label>Escolha a data</mat-label>
-          <input matInput [matDatepicker]="picker" />
+          <input matInput [matDatepicker]="picker" id="workDate" />
           <mat-datepicker-toggle
             matIconSuffix
             [for]="picker"
@@ -52,14 +56,14 @@
       <div class="col-12">
         <ul class="list-group">
           <li
-            *ngFor="let item of items; let index = index"
+            *ngFor="let item of customerDetails; let index = index"
             class="list-group-item p-3"
           >
             <div class="d-flex w-100 h-100">
               <div class="d-flex details flex-column w-50">
-                <p class="mb-0">{{ item.name }}</p>
+                <p class="mb-0">{{ item.nome_funcionario }}</p>
                 <p class="mb-0">Matricula: {{ item.id }}</p>
-                <p class="mb-0">Centro Custo: {{ item.sector }}</p>
+                <p class="mb-0">Centro Custo: {{ item.setor }}</p>
                 <p class="mb-0">Atividade: {{ item.desc }}</p>
                 <input
                   type="text"
@@ -77,6 +81,7 @@
                       type="checkbox"
                       id="toggleAllForm{{ item.id }}"
                       class="form-check-input"
+                      (click)="toggleAllUniqueCustomer(item)"
                     />
                     <label
                       for="toggleAllForm{{ item.id }}"
