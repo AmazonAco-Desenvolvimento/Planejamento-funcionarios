@@ -55,6 +55,20 @@ export class UserInformationsComponent implements OnInit {
     this.stored.userConfirmDetails = [];
   }
 
+  // * General functions to set data to each customer into array
+
+  setGeneralTurn(generalTurn: HTMLInputElement) {
+    for (let item of this.customerDetails) {
+      item.turno = generalTurn.value;
+    }
+  }
+
+  setDate(generalDate: HTMLInputElement) {
+    for (let item of this.customerDetails) {
+      item.data = generalDate.value;
+    }
+  }
+
   // ! Function used just to prevent boiler code for the toggle function below
   toggleAllCustomerSupportFun(
     item: customer_extra_details,
@@ -144,6 +158,7 @@ export class UserInformationsComponent implements OnInit {
       console.log(this.customerDetails);
     }
   }
+
   toggleAllUniqueCustomer(item: customer_extra_details) {
     let toggleAlluCustomer = document.getElementById(
       `toggleAllForm${item.id}`
@@ -159,4 +174,139 @@ export class UserInformationsComponent implements OnInit {
 
   //! Toggle unique checkbox function needs to be multiple functions for each checkbox element(Just getting the id of the item to make it more dinamic)
   // ! Functions below here
+
+  toggleRota(item: customer_extra_details) {
+    let routeCheckbox = document.getElementById(
+      `route${item.id}`
+    ) as HTMLInputElement;
+    if (routeCheckbox.checked) {
+      routeCheckbox.checked = true;
+      item.rota = true;
+      console.log(this.customerDetails);
+    } else if (!routeCheckbox.checked) {
+      routeCheckbox.checked = false;
+      item.rota = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggleCeia(item: customer_extra_details) {
+    let ceiaCheckbox = document.getElementById(
+      `ceia${item.id}`
+    ) as HTMLInputElement;
+    if (ceiaCheckbox.checked) {
+      ceiaCheckbox.checked = true;
+      item.ceia = true;
+      console.log(this.customerDetails);
+    } else if (!ceiaCheckbox.checked) {
+      ceiaCheckbox.checked = false;
+      item.ceia = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggleDesj(item: customer_extra_details) {
+    let desjCheckbox = document.getElementById(
+      `desj${item.id}`
+    ) as HTMLInputElement;
+    if (desjCheckbox.checked) {
+      desjCheckbox.checked = true;
+      item.desj = true;
+      console.log(this.customerDetails);
+    } else if (!desjCheckbox.checked) {
+      desjCheckbox.checked = false;
+      item.desj = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggleAlm(item: customer_extra_details) {
+    let almCheckbox = document.getElementById(
+      `alm${item.id}`
+    ) as HTMLInputElement;
+    if (almCheckbox.checked) {
+      almCheckbox.checked = true;
+      item.almoco = true;
+      console.log(this.customerDetails);
+    } else if (!almCheckbox.checked) {
+      almCheckbox.checked = false;
+      item.almoco = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggle1lanc(item: customer_extra_details) {
+    let lanc1Checkbox = document.getElementById(
+      `1lanc${item.id}`
+    ) as HTMLInputElement;
+    if (lanc1Checkbox.checked) {
+      lanc1Checkbox.checked = true;
+      item.lanc1 = true;
+      console.log(this.customerDetails);
+    } else if (!lanc1Checkbox.checked) {
+      lanc1Checkbox.checked = false;
+      item.lanc1 = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggleLancDob(item: customer_extra_details) {
+    let lancDobCheckbox = document.getElementById(
+      `lancDob${item.id}`
+    ) as HTMLInputElement;
+    if (lancDobCheckbox.checked) {
+      lancDobCheckbox.checked = true;
+      item.lancDob = true;
+      console.log(this.customerDetails);
+    } else if (!lancDobCheckbox.checked) {
+      lancDobCheckbox.checked = false;
+      item.lancDob = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggleLancEsp(item: customer_extra_details) {
+    let lancEspCheckbox = document.getElementById(
+      `lancesp${item.id}`
+    ) as HTMLInputElement;
+    if (lancEspCheckbox.checked) {
+      lancEspCheckbox.checked = true;
+      item.lancEsp = true;
+      console.log(this.customerDetails);
+    } else if (!lancEspCheckbox.checked) {
+      lancEspCheckbox.checked = false;
+      item.lancEsp = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggle2Lanc(item: customer_extra_details) {
+    let lanc2Checkbox = document.getElementById(
+      `2lanc${item.id}`
+    ) as HTMLInputElement;
+    if (lanc2Checkbox.checked) {
+      lanc2Checkbox.checked = true;
+      item.lanc2 = true;
+      console.log(this.customerDetails);
+    } else if (!lanc2Checkbox.checked) {
+      lanc2Checkbox.checked = false;
+      item.lanc2 = false;
+      console.log(this.customerDetails);
+    }
+  }
+
+  toggleJan(item: customer_extra_details) {
+    let janCheckbox = document.getElementById(
+      `jan${item.id}`
+    ) as HTMLInputElement;
+    if (janCheckbox.checked) {
+      janCheckbox.checked = true;
+      item.jan = true;
+      console.log(this.customerDetails);
+    } else if (!janCheckbox.checked) {
+      janCheckbox.checked = false;
+      item.jan = false;
+      console.log(this.customerDetails);
+    }
+  }
 }

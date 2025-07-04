@@ -13,7 +13,7 @@ import { customer } from '../../Interfaces/general-dtos';
 export class CustomersPageComponent {
   constructor(public stored: StoredDataService) {}
   items: any[] = this.stored.searchedUsers;
-  
+
   toggleAllItems(allinp: HTMLInputElement) {
     allinp.checked = allinp.checked;
     console.log(allinp.checked);

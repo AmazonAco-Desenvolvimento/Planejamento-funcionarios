@@ -34,24 +34,64 @@
             (click)="toggleAllCustomers(customerDetails)"
           />
           <label for="allData" class="form-check-label">Marcar tudo</label>
-          <input
-            type="text"
-            class="form-control mt-1"
-            id="generalTurn"
-            placeholder="Turno aqui (Geral)"
-          />
+          <div class="d-flex gap-2 align-items-center mt-1">
+            <input
+              type="text"
+              class="form-control"
+              id="generalTurn"
+              placeholder="Turno aqui (Geral)"
+              #generalTurnID
+            />
+            <button
+              class="btn btn-secondary"
+              (click)="setGeneralTurn(generalTurnID)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="iconSize2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <!-- selectArea -->
-        <mat-form-field>
-          <mat-label>Escolha a data</mat-label>
-          <input matInput [matDatepicker]="picker" id="workDate" />
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        <div class="d-flex flex-row gap-1 align-items-center">
+          <mat-form-field>
+            <mat-label>Escolha a data</mat-label>
+            <input matInput [matDatepicker]="picker" id="workDate" #workDate/>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <button class="btn btn-secondary" (click)="setDate(workDate)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="iconSize2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       <div class="col-12">
         <ul class="list-group">
@@ -69,6 +109,7 @@
                   type="text"
                   class="form-control mt-1 w-50"
                   id="turn{{ item.id }}"
+                  [(ngModel)]="item.turno"
                   placeholder="Turno aqui (Individual)"
                 />
               </div>
@@ -97,6 +138,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'route' + item.id"
+                      (click)="toggleRota(item)"
                     />
                     <label for="route{{ item.id }}" class="form-check-label"
                       >Rota</label
@@ -110,6 +152,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'ceia' + item.id"
+                      (click)="toggleCeia(item)"
                     />
                     <label for="ceia{{ item.id }}" class="form-check-label"
                       >Ceia</label
@@ -123,6 +166,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'desj' + item.id"
+                      (click)="toggleDesj(item)"
                     />
                     <label for="desj{{ item.id }}" class="form-check-label"
                       >Desj.</label
@@ -137,6 +181,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'alm' + item.id"
+                      (click)="toggleAlm(item)"
                     />
                     <label for="alm{{ item.id }}" class="form-check-label"
                       >Alm.</label
@@ -150,6 +195,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'1lanc' + item.id"
+                      (click)="toggle1lanc(item)"
                     />
                     <label for="1lanc{{ item.id }}" class="form-check-label"
                       >1ºlanc.</label
@@ -164,6 +210,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'lancDob' + item.id"
+                      (click)="toggleLancDob(item)"
                     />
                     <label for="lancDob{{ item.id }}" class="form-check-label"
                       >Lanc. Dob</label
@@ -177,6 +224,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'lancesp' + item.id"
+                      (click)="toggleLancEsp(item)"
                     />
                     <label for="lancesp{{ item.id }}" class="form-check-label"
                       >Lanc. Esp</label
@@ -191,6 +239,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'2lanc' + item.id"
+                      (click)="toggle2Lanc(item)"
                     />
                     <label for="2lanc{{ item.id }}" class="form-check-label"
                       >2º Lanc(3ºT)</label
@@ -204,6 +253,7 @@
                       class="form-check-input"
                       value="{{ item }}"
                       [id]="'jan' + item.id"
+                      (click)="toggleJan(item)"
                     />
                     <label for="jan{{ item.id }}" class="form-check-label"
                       >Jan</label
@@ -214,6 +264,11 @@
             </div>
           </li>
         </ul>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary w-25 mt-3">
+          Avançar para relatório
+        </button>
       </div>
     </div>
   </div>
