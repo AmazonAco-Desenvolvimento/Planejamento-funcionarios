@@ -42,25 +42,6 @@
               placeholder="Turno aqui (Geral)"
               #generalTurnID
             />
-            <button
-              class="btn btn-secondary"
-              (click)="setGeneralTurn(generalTurnID)"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="iconSize2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </button>
           </div>
         </div>
 
@@ -68,29 +49,13 @@
         <div class="d-flex flex-row gap-1 align-items-center">
           <mat-form-field>
             <mat-label>Escolha a data</mat-label>
-            <input matInput [matDatepicker]="picker" id="workDate" #workDate/>
+            <input matInput [matDatepicker]="picker" id="workDate" #workDate />
             <mat-datepicker-toggle
               matIconSuffix
               [for]="picker"
             ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <button class="btn btn-secondary" (click)="setDate(workDate)">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="iconSize2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </button>
         </div>
       </div>
       <div class="col-12">
@@ -103,7 +68,6 @@
               <div class="d-flex details flex-column w-50">
                 <p class="mb-0">{{ item.nome_funcionario }}</p>
                 <p class="mb-0">Matricula: {{ item.id }}</p>
-                <p class="mb-0">Centro Custo: {{ item.setor }}</p>
                 <p class="mb-0">Atividade: {{ item.desc }}</p>
                 <input
                   type="text"
@@ -266,7 +230,10 @@
         </ul>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary w-25 mt-3">
+        <button
+          class="btn btn-primary w-25 mt-3"
+          (click)="generateSheets(generalTurnID, workDate)"
+        >
           Avançar para relatório
         </button>
       </div>

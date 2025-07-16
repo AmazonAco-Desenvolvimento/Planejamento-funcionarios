@@ -9,6 +9,7 @@ import {
   provideNativeDateAdapter,
 } from '@angular/material/core';
 import { userInfoMods } from './userInfoIndex';
+import { ExcellSheetService } from '../../services/excell-sheet.service';
 
 @Component({
   selector: 'app-user-informations',
@@ -24,8 +25,11 @@ import { userInfoMods } from './userInfoIndex';
   ],
 })
 export class UserInformationsComponent implements OnInit {
-  constructor(public stored: StoredDataService) {}
-  items: customer[] = this.stored.searchedUsers;
+  constructor(
+    public stored: StoredDataService,
+    public sheet: ExcellSheetService
+  ) {}
+  items: customer[] = this.stored.sectorUsersSelected;
   customerDetails: customer_extra_details[] = this.stored.userConfirmDetails;
 
   ngOnInit(): void {
@@ -38,7 +42,6 @@ export class UserInformationsComponent implements OnInit {
       });
     }
     this.customerDetails = this.stored.userConfirmDetails;
-    console.log(this.customerDetails);
   }
 
   updateDate(items: customer_extra_details[]) {
@@ -53,20 +56,7 @@ export class UserInformationsComponent implements OnInit {
   backPage() {
     this.items = [];
     this.stored.userConfirmDetails = [];
-  }
-
-  // * General functions to set data to each customer into array
-
-  setGeneralTurn(generalTurn: HTMLInputElement) {
-    for (let item of this.customerDetails) {
-      item.turno = generalTurn.value;
-    }
-  }
-
-  setDate(generalDate: HTMLInputElement) {
-    for (let item of this.customerDetails) {
-      item.data = generalDate.value;
-    }
+    this.stored.sectorUsersSelected = [];
   }
 
   // ! Function used just to prevent boiler code for the toggle function below
@@ -308,5 +298,17 @@ export class UserInformationsComponent implements OnInit {
       item.jan = false;
       console.log(this.customerDetails);
     }
+  }
+
+  //Sheets area
+
+  generateSheets(generalTurn: HTMLInputElement, generalDate: HTMLInputElement) {
+    for (let item of this.customerDetails) {
+      if (item.turno === undefined) {
+        item.turno = generalTurn.value;
+      }
+      item.data = generalDate.value;
+    }
+    this.sheet.downloadExcel(this.customerDetails);
   }
 }
