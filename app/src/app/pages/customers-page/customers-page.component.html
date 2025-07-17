@@ -26,14 +26,29 @@
   <div class="container p-3 mt-3 d-flex flex-column">
     <div class="mb-3">
       <label for="centroCusto" class="form-label">Centro custo(Setor)</label>
-      <div class="d-flex gap-2">
+      <div class="d-flex align-items-center gap-2">
         <input
           type="text"
           class="form-control w-25"
           id="centroCusto"
+          #centroCusto
           placeholder="Digite aqui!"
         />
-        <button class="btn btn-primary">Buscar</button>
+        <button
+          class="btn btn-primary"
+          (click)="getcolabs(centroCusto.value)"
+          id="searchBtn"
+          type="button"
+        >
+          <div class="d-flex gap-1 align-items-center" *ngIf="apiLoading">
+            <span
+              class="spinner-border spinner-border-sm"
+              aria-hidden="true"
+            ></span>
+            <span role="status">Buscando...</span>
+          </div>
+          <span *ngIf="!apiLoading">Buscar</span>
+        </button>
       </div>
     </div>
     <hr />

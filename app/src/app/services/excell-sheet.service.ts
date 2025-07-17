@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as ExcelJS from 'exceljs';
-import FileSaver, * as fileSaver from 'file-saver';
 import saveAs from 'file-saver';
 import { StoredDataService } from './stored-data.service';
 import { customer_extra_details } from '../Interfaces/general-dtos';
@@ -9,7 +8,7 @@ import { customer_extra_details } from '../Interfaces/general-dtos';
   providedIn: 'root',
 })
 export class ExcellSheetService {
-  constructor(private store: StoredDataService) {}
+  constructor() {}
 
   async downloadExcel(items: customer_extra_details[]): Promise<void> {
     const workbook = new ExcelJS.Workbook();
@@ -17,7 +16,7 @@ export class ExcellSheetService {
 
     // === HEADER LAYOUT ===
     sheet.mergeCells('A1:C1');
-    sheet.getCell('A1').value = `SÁBADO (${items[0].data})`;
+    sheet.getCell('A1').value = `Dia (${items[0].data})`;
     sheet.getCell('A1').alignment = {
       horizontal: 'center',
       vertical: 'middle',
@@ -135,7 +134,7 @@ export class ExcellSheetService {
 
     dataRows.forEach((row) => {
       const dataRow = sheet.addRow(row);
-      dataRow.eachCell((cell) => {
+      dataRow.eachCell((cell, colNumber) => {
         cell.alignment = {
           horizontal: 'center',
           vertical: 'middle',
@@ -148,11 +147,20 @@ export class ExcellSheetService {
           bottom: { style: 'thin' },
           right: { style: 'thin' },
         };
+
+        if (colNumber === 1) {
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: 'CCFFFF' }, 
+          };
+          cell.font = { size: 10, bold: true };
+        }
       });
+
       dataRow.height = 30;
     });
 
-    // Exportação do arquivo para o navegador
     const buffer = await workbook.xlsx.writeBuffer();
     const blob = new Blob([buffer], {
       type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',

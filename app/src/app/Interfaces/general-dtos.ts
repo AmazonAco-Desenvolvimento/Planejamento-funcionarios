@@ -1,4 +1,5 @@
 export interface customer {
+  filial: string;
   name: string;
   id: string;
   sector: string;
@@ -43,4 +44,9 @@ export interface customer_extra_details {
   lancEsp?: boolean;
   lanc2?: boolean;
   jan?: boolean;
+}
+
+export interface sector{
+  ccCode: string,
+  ccDesc: string;
 }
