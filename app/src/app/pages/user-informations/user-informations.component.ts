@@ -302,7 +302,7 @@ export class UserInformationsComponent implements OnInit {
 
   //Sheets area
 
-  generateSheets(generalTurn: HTMLInputElement, generalDate: HTMLInputElement) {
+  generateSheets(generalTurn: HTMLInputElement, generalDate: HTMLInputElement, generalActivity: HTMLInputElement, generalIndustry: HTMLSelectElement) {
     for (let item of this.customerDetails) {
       if (item.turno === undefined) {
         item.turno = generalTurn.value;

@@ -71,6 +71,7 @@ export class CustomersPageComponent {
         }
         this.items = this.stored.searchedUsers;
         this.apiLoading = false;
+        1;
         searchBtn?.removeAttribute('disabled');
       },
     });

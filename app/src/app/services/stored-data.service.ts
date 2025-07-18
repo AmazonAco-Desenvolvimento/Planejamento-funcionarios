@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { customer, customer_extra_details, sector } from '../Interfaces/general-dtos';
+import {
+  customer,
+  customer_extra_details,
+  sector,
+} from '../Interfaces/general-dtos';
 
 @Injectable({
   providedIn: 'root',
@@ -11,5 +15,5 @@ export class StoredDataService {
   sectorUsersSelected: customer[] = [];
   confirmedUserData: customer_extra_details[] = [];
 
-  sectors: sector[] = []
+  sectors: sector[] = [];
 }

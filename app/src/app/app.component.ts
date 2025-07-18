@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
     this.api.getSector().subscribe({
       next: (response) => {
         this.store.sectors = response;
-        console.log(response);
       },
       error: (err) => console.log(err),
     });

@@ -34,7 +34,7 @@
             (click)="toggleAllCustomers(customerDetails)"
           />
           <label for="allData" class="form-check-label">Marcar tudo</label>
-          <div class="d-flex gap-2 align-items-center mt-1">
+          <div class="d-flex gap-2 align-items-center mt-1 flex-row">
             <input
               type="text"
               class="form-control"
@@ -42,6 +42,27 @@
               placeholder="Turno aqui (Geral)"
               #generalTurnID
             />
+            <input
+              type="text"
+              id="generalActivity"
+              class="form-control"
+              placeholder="Atividade geral"
+              #generalActivity
+            />
+
+            <select
+              class="form-select"
+              aria-label="industry select"
+              #generalIndustry
+            >
+              <option selected>Empresa(selecione)</option>
+              <option value="matriz">Unidade matriz</option>
+              <option value="silves">Unidade Silves</option>
+              <option value="timbiras">Unidade Timbiras</option>
+              <option value="alvorada">Unidade Alvorada</option>
+              <option value="autazmirim">Unidade Autaz Mirim</option>
+              <option value="itauba">Unidade Itauba</option>
+            </select>
           </div>
         </div>
 
@@ -68,10 +89,16 @@
               <div class="me-2 d-flex details flex-column w-50">
                 <p class="mb-0">{{ item.nome_funcionario }}</p>
                 <p class="mb-0">Matricula: {{ item.id }}</p>
-                <p class="mb-0">Atividade: {{ item.desc }}</p>
                 <input
                   type="text"
-                  class="form-control mt-1 w-50"
+                  class="form-control mt-1 w-75"
+                  id="activity{{ item.id }}"
+                  [(ngModel)]="item.desc"
+                  placeholder="Atividade exercida(Inserir)"
+                />
+                <input
+                  type="text"
+                  class="form-control mt-1 w-75"
                   id="turn{{ item.id }}"
                   [(ngModel)]="item.turno"
                   placeholder="Turno aqui (Individual)"
@@ -232,7 +259,14 @@
       <div class="col-12">
         <button
           class="btn btn-primary w-25 mt-3"
-          (click)="generateSheets(generalTurnID, workDate)"
+          (click)="
+            generateSheets(
+              generalTurnID,
+              workDate,
+              generalActivity,
+              generalIndustry
+            )
+          "
         >
           Avançar para relatório
         </button>
