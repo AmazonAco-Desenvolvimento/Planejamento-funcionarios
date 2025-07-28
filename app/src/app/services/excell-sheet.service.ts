@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as ExcelJS from 'exceljs';
 import saveAs from 'file-saver';
-import { StoredDataService } from './stored-data.service';
 import { customer_extra_details } from '../Interfaces/general-dtos';
 
 @Injectable({
@@ -104,18 +103,18 @@ export class ExcellSheetService {
       item.data,
       item.id,
       item.nome_funcionario,
-      item.setor,
-      '',
       item.desc,
-      item.rota ? 'sim' : 'não',
-      item.ceia ? 'sim' : 'não',
-      item.desj ? 'sim' : 'não',
-      item.almoco ? 'sim' : 'não',
-      item.lanc1 ? 'sim' : 'não',
-      item.lancDob ? 'sim' : 'não',
-      item.lancEsp ? 'sim' : 'não',
-      item.lanc2 ? 'sim' : 'não',
-      item.jan ? 'sim' : 'não',
+      item.empresa,
+      item.atv,
+      item.rota ? 'sim' : ' ',
+      item.ceia ? 'sim' : ' ',
+      item.desj ? 'sim' : ' ',
+      item.almoco ? 'sim' : ' ',
+      item.lanc1 ? 'sim' : ' ',
+      item.lancDob ? 'sim' : ' ',
+      item.lancEsp ? 'sim' : ' ',
+      item.lanc2 ? 'sim' : ' ',
+      item.jan ? 'sim' : ' ',
       item.turno,
     ]);
 
@@ -152,7 +151,7 @@ export class ExcellSheetService {
           cell.fill = {
             type: 'pattern',
             pattern: 'solid',
-            fgColor: { argb: 'CCFFFF' }, 
+            fgColor: { argb: 'CCFFFF' },
           };
           cell.font = { size: 10, bold: true };
         }

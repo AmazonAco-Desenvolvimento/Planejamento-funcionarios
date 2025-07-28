@@ -39,6 +39,7 @@ export class UserInformationsComponent implements OnInit {
         id: item.id,
         setor: item.sector,
         desc: item.desc,
+        empresa: item.empresa,
       });
     }
     this.customerDetails = this.stored.userConfirmDetails;
@@ -300,12 +301,38 @@ export class UserInformationsComponent implements OnInit {
     }
   }
 
+  //! Toggle all unique checkbox
+  // ! Functions below here
+
+  toggleAllRota(customers: customer_extra_details[]){}
+  toggleAllCeia(customers: customer_extra_details[]){}
+  toggleAllCDesj(customers: customer_extra_details[]){}
+  toggleAllAlm(customers: customer_extra_details[]){}
+  toggleAll1lanc(customers: customer_extra_details[]){}
+  toggleAlllancDob(customers: customer_extra_details[]){}
+  toggleAlllancEsp(customers: customer_extra_details[]){}
+  toggleAll2lanc(customers: customer_extra_details[]){}
+  toggleAlljan(customers: customer_extra_details[]){}
+
+
+  
   //Sheets area
 
-  generateSheets(generalTurn: HTMLInputElement, generalDate: HTMLInputElement, generalActivity: HTMLInputElement, generalIndustry: HTMLSelectElement) {
+  generateSheets(
+    generalTurn: HTMLInputElement,
+    generalDate: HTMLInputElement,
+    generalActivity: HTMLInputElement,
+    generalIndustry: HTMLSelectElement
+  ) {
     for (let item of this.customerDetails) {
       if (item.turno === undefined) {
         item.turno = generalTurn.value;
+      }
+      if (item.atv === undefined) {
+        item.atv = generalActivity.value;
+      }
+      if (item.empresa === undefined) {
+        item.empresa = generalIndustry.value;
       }
       item.data = generalDate.value;
     }

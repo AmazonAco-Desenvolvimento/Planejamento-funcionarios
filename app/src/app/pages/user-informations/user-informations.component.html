@@ -1,4 +1,4 @@
-<div class="container p-3">
+<div class="container-fluid p-3">
   <nav class="navbar navbar-expand-lg">
     <div
       class="container-fluid d-flex align-items-center justify-content-start"
@@ -24,50 +24,54 @@
   </nav>
 
   <div class="container p-3 mt-3 d-flex flex-column border rounded">
+    <p>Noturno - Operação Bobina</p>
     <div class="row">
-      <div class="col-12 d-flex justify-content-between">
-        <div class="form-check">
-          <input
-            type="checkbox"
-            id="allData"
-            class="form-check-input"
-            (click)="toggleAllCustomers(customerDetails)"
-          />
-          <label for="allData" class="form-check-label">Marcar tudo</label>
-          <div class="d-flex gap-2 align-items-center mt-1 flex-row">
-            <input
-              type="text"
-              class="form-control"
-              id="generalTurn"
-              placeholder="Turno aqui (Geral)"
-              #generalTurnID
-            />
-            <input
-              type="text"
-              id="generalActivity"
-              class="form-control"
-              placeholder="Atividade geral"
-              #generalActivity
-            />
+      <div class="col-12 d-flex flex-column justify-content-start gap-2">
+        <div class="d-flex justify-content-start gap-3">
+          <p class="mb-0">Marcar tudo:</p>
+          <div class="form-check">
+            <input type="checkbox" id="allroute" class="form-check-input" />
+            <label for="allroute" class="form-check-label">Rota</label>
+          </div>
+        </div>
 
-            <select
-              class="form-select"
-              aria-label="industry select"
-              #generalIndustry
-            >
-              <option selected>Empresa(selecione)</option>
-              <option value="matriz">Unidade matriz</option>
-              <option value="silves">Unidade Silves</option>
-              <option value="timbiras">Unidade Timbiras</option>
-              <option value="alvorada">Unidade Alvorada</option>
-              <option value="autazmirim">Unidade Autaz Mirim</option>
-              <option value="itauba">Unidade Itauba</option>
-            </select>
+        <div class="d-flex flex-row gap-5">
+          <div class="form-check">
+            <input type="checkbox" id="allceia" class="form-check-input" />
+            <label for="allceia" class="form-check-label">Ceia</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="alldesj" class="form-check-input" />
+            <label for="alldesj" class="form-check-label">Desj.</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="allalm" class="form-check-input" />
+            <label for="allalm" class="form-check-label">Alm.</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="all1lanc" class="form-check-input" />
+            <label for="all1lanc" class="form-check-label">1ºlanc</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="alllancdob" class="form-check-input" />
+            <label for="alllancdob" class="form-check-label">lanc.Dob</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="alllancesp" class="form-check-input" />
+            <label for="alllancesp" class="form-check-label">Lanc.Esp</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="all2lanc" class="form-check-input" />
+            <label for="all2lanc" class="form-check-label">2º Lanc(3ºT)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="alljant" class="form-check-input" />
+            <label for="alljant" class="form-check-label">Jant</label>
           </div>
         </div>
 
         <!-- selectArea -->
-        <div class="d-flex flex-row gap-1 align-items-center">
+        <!-- <div class="d-flex flex-row gap-1 align-items-center">
           <mat-form-field>
             <mat-label>Escolha a data</mat-label>
             <input matInput [matDatepicker]="picker" id="workDate" #workDate />
@@ -77,42 +81,30 @@
             ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-        </div>
+        </div> -->
       </div>
       <div class="col-12">
         <ul class="list-group">
           <li
             *ngFor="let item of customerDetails; let index = index"
-            class="list-group-item p-3"
+            class="list-group-item p-2"
           >
             <div class="d-flex w-100 h-100">
               <div class="me-2 d-flex details flex-column w-50">
                 <p class="mb-0">{{ item.nome_funcionario }}</p>
                 <p class="mb-0">Matricula: {{ item.id }}</p>
-                <input
-                  type="text"
-                  class="form-control mt-1 w-75"
-                  id="activity{{ item.id }}"
-                  [(ngModel)]="item.desc"
-                  placeholder="Atividade exercida(Inserir)"
-                />
-                <input
-                  type="text"
-                  class="form-control mt-1 w-75"
-                  id="turn{{ item.id }}"
-                  [(ngModel)]="item.turno"
-                  placeholder="Turno aqui (Individual)"
-                />
               </div>
               <div class="row userForm w-75">
                 <div class="col-4"><p>Rota</p></div>
                 <div class="col-4"><p>Refeitório</p></div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
                       id="toggleAllForm{{ item.id }}"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       (click)="toggleAllUniqueCustomer(item)"
                     />
                     <label
@@ -123,10 +115,12 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="form-check border-0">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'route' + item.id"
                       (click)="toggleRota(item)"
@@ -137,10 +131,12 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'ceia' + item.id"
                       (click)="toggleCeia(item)"
@@ -151,10 +147,12 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'desj' + item.id"
                       (click)="toggleDesj(item)"
@@ -166,10 +164,12 @@
                 </div>
                 <div class="col-4"></div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'alm' + item.id"
                       (click)="toggleAlm(item)"
@@ -180,10 +180,12 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'1lanc' + item.id"
                       (click)="toggle1lanc(item)"
@@ -195,10 +197,12 @@
                 </div>
                 <div class="col-4"></div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'lancDob' + item.id"
                       (click)="toggleLancDob(item)"
@@ -209,10 +213,12 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'lancesp' + item.id"
                       (click)="toggleLancEsp(item)"
@@ -224,10 +230,12 @@
                 </div>
                 <div class="col-4"></div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'2lanc' + item.id"
                       (click)="toggle2Lanc(item)"
@@ -238,10 +246,12 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="form-check">
+                  <div
+                    class="form-check d-flex flex-row gap-1 align-items-center"
+                  >
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      class="form-check-input customPadding"
                       value="{{ item }}"
                       [id]="'jan' + item.id"
                       (click)="toggleJan(item)"
@@ -257,17 +267,7 @@
         </ul>
       </div>
       <div class="col-12">
-        <button
-          class="btn btn-primary w-25 mt-3"
-          (click)="
-            generateSheets(
-              generalTurnID,
-              workDate,
-              generalActivity,
-              generalIndustry
-            )
-          "
-        >
+        <button class="btn btn-primary w-25 mt-3">
           Avançar para relatório
         </button>
       </div>

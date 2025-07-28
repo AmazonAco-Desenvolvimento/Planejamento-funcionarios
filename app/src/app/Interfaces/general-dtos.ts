@@ -4,6 +4,7 @@ export interface customer {
   id: string;
   sector: string;
   desc: string;
+  empresa: string;
 }
 
 export interface rota {
@@ -25,14 +26,16 @@ export interface route_details {
   reference: string;
   turno: string;
   ha: string;
-}    
+}
 
 export interface customer_extra_details {
   nome_funcionario: string;
   id: string;
   setor: string;
-  desc?: string;
+  atv?: string;
+  desc: string;
   data?: string;
+  empresa?: string;
   funcao?: string;
   turno?: string;
   rota?: boolean;
@@ -46,7 +49,7 @@ export interface customer_extra_details {
   jan?: boolean;
 }
 
-export interface sector{
-  ccCode: string,
+export interface sector {
+  ccCode: string;
   ccDesc: string;
 }

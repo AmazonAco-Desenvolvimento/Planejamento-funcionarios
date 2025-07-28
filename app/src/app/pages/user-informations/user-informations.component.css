@@ -5,3 +5,7 @@
 .iconSize2 {
   width: 1.3em;
 }
+
+.customPadding {
+  padding: 0.55em !important;
+}

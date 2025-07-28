@@ -14,12 +14,5 @@ import { StoredDataService } from './services/stored-data.service';
 export class AppComponent implements OnInit {
   constructor(private api: ProtheusService, private store: StoredDataService) {}
   title = 'Planejamento';
-  ngOnInit(): void {
-    this.api.getSector().subscribe({
-      next: (response) => {
-        this.store.sectors = response;
-      },
-      error: (err) => console.log(err),
-    });
-  }
+  ngOnInit(): void {}
 }
