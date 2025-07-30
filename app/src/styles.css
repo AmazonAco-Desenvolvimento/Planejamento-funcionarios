@@ -5,17 +5,22 @@
   font-family: "Roboto";
 }
 
-html {
-  height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
-  height: 100%;
   background-color: #f8f9fa !important;
 }
 
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+app-root {
+  display: block;
+  height: 100%;
+}

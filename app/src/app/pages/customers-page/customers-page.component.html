@@ -15,7 +15,7 @@
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
           />
         </svg>
       </a>
@@ -52,6 +52,7 @@
       </div>
     </div>
     <hr />
+    <p class="lead fw-normal">Selecione os funcionários do setor</p>
     <div class="d-flex flex-column border rounded p-1">
       <table class="table table-bordered">
         <thead>
@@ -83,7 +84,7 @@
               <div class="form-check d-flex justify-content-center">
                 <input
                   type="checkbox"
-                  class="form-check-input border-2 w-50"
+                  class="form-check-input border-2"
                   id="{{ i.id }}"
                   (click)="dataSelectedToggle(i.id, i)"
                 />

@@ -304,18 +304,16 @@ export class UserInformationsComponent implements OnInit {
   //! Toggle all unique checkbox
   // ! Functions below here
 
-  toggleAllRota(customers: customer_extra_details[]){}
-  toggleAllCeia(customers: customer_extra_details[]){}
-  toggleAllCDesj(customers: customer_extra_details[]){}
-  toggleAllAlm(customers: customer_extra_details[]){}
-  toggleAll1lanc(customers: customer_extra_details[]){}
-  toggleAlllancDob(customers: customer_extra_details[]){}
-  toggleAlllancEsp(customers: customer_extra_details[]){}
-  toggleAll2lanc(customers: customer_extra_details[]){}
-  toggleAlljan(customers: customer_extra_details[]){}
+  toggleAllRota(customers: customer_extra_details[]) {}
+  toggleAllCeia(customers: customer_extra_details[]) {}
+  toggleAllCDesj(customers: customer_extra_details[]) {}
+  toggleAllAlm(customers: customer_extra_details[]) {}
+  toggleAll1lanc(customers: customer_extra_details[]) {}
+  toggleAlllancDob(customers: customer_extra_details[]) {}
+  toggleAlllancEsp(customers: customer_extra_details[]) {}
+  toggleAll2lanc(customers: customer_extra_details[]) {}
+  toggleAlljan(customers: customer_extra_details[]) {}
 
-
-  
   //Sheets area
 
   generateSheets(

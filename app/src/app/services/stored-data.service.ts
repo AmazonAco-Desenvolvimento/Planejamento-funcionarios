@@ -16,4 +16,7 @@ export class StoredDataService {
   confirmedUserData: customer_extra_details[] = [];
 
   sectors: sector[] = [];
+  tableDate?: Date;
+  tableActivity: string = '';
+  tableTurn: string = '';
 }
