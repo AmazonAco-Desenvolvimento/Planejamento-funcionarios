@@ -28,9 +28,21 @@ export interface route_details {
   ha: string;
 }
 
+export interface table {
+  id: string;
+  data_extra: string;
+  descricao: string;
+  criado_por: string;
+  status: string;
+  created_at: string;
+  setor: string;
+}
+
 export interface customer_extra_details {
   nome_funcionario: string;
   id: string;
+  database_id?: string;
+  extra_id?: string;
   setor: string;
   atv?: string;
   desc: string;
@@ -47,6 +59,7 @@ export interface customer_extra_details {
   lancEsp?: boolean;
   lanc2?: boolean;
   jan?: boolean;
+  created_at?: string;
 }
 
 export interface sector {

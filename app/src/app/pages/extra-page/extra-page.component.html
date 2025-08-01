@@ -1,9 +1,10 @@
-<div class="container d-flex flex-column gap-2 h-100 p-3">
-  <nav class="navbar navbar-expand-lg">
+<div class="container-fluid d-flex flex-column h-100">
+  <div class="row h-100 p-0">
     <div
-      class="container-fluid d-flex align-items-center justify-content-start"
+      class="h-100 col-12 d-flex flex-column justify-content-between align-items-center p-3 bg-dark text-bg-dark"
+      style="width: 4%"
     >
-      <a routerLink="" class="navbar-brand">
+      <a routerLink="" class="text-light">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -19,9 +20,28 @@
           />
         </svg>
       </a>
-      <span class="navbar-text text-black">Planejamento Extra</span>
     </div>
-  </nav>
-
-  <div class="container-fluid h-100 p-3 border rounded"></div>
+    <div class="col-lg-2 col-sm-3 h-100 border-end border-2 d-flex flex-column">
+      <button class="btn btn-primary m-4">+ Criar extra</button>
+      <div class="d-flex flex-column gap-2 mt-3">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-light filterHover">
+            Recém adicionados
+          </li>
+          <li class="list-group-item bg-light">Aprovados</li>
+          <li class="list-group-item bg-light">Rejeitados</li>
+          <li class="list-group-item bg-light">Pendente</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg col-sm h-100 p-0 d-flex flex-column">
+      <nav class="navbar navbar-expand-lg border-bottom border-2">
+        <div
+          class="container-fluid d-flex align-items-center justify-content-start"
+        >
+          <a class="navbar-brand">Extras</a>
+        </div>
+      </nav>
+    </div>
+  </div>
 </div>
